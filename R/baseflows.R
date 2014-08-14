@@ -1,6 +1,9 @@
 baseflows <- function(flow.ts, a = 0.975, ts = "mean") {
     
     full.flow.ts <- flow.ts[c("Date", "Q")]
+    record.year <- strftime(flow.ts[, "Date"], format = "%Y")
+    n.years <- nlevels(as.factor(record.year))
+    
     red.flow.ts <- full.flow.ts[complete.cases(full.flow.ts[, "Date"], full.flow.ts[, "Q"]), ]
     
     Date <- red.flow.ts[, 1]
@@ -46,7 +49,6 @@ baseflows <- function(flow.ts, a = 0.975, ts = "mean") {
     bf <- lh3(Q, a)
     bfi <- ifelse(Q == 0, 0, bf/Q)
     out <- data.frame(Date, bf, bfi)
-    full.flow.ts$Date <- as.POSIXct(full.flow.ts$Date)
     out <- merge(full.flow.ts, out, by = "Date", all.x = T)
     names(out) <- c("Date", "Q", "bf", "bfi")
     
@@ -72,7 +74,7 @@ baseflows <- function(flow.ts, a = 0.975, ts = "mean") {
             obs <- nrow(red.flow.ts)
             prop.obs = obs/all.days
             
-            return(data.frame(prop.obs = prop.obs, MDF = mean(out[, 2], na.rm = T), Q50 = median(out[, 2], na.rm = T), mean.bf = mean(out[, 
+            return(data.frame(n.years = n.years, prop.obs = prop.obs, MDF = mean(out[, 2], na.rm = T), Q50 = median(out[, 2], na.rm = T), mean.bf = mean(out[, 
                 3], na.rm = T), mean.bfi = mean(out[, 3], na.rm = T)/mean(out[, 2], na.rm = T)))
             
         }
