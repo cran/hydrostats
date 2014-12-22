@@ -1,15 +1,16 @@
 baseflows <- function(flow.ts, a = 0.975, ts = "mean") {
     
     full.flow.ts <- flow.ts[c("Date", "Q")]
-    record.year <- strftime(flow.ts[, "Date"], format = "%Y")
-    n.years <- nlevels(as.factor(record.year))
+    record.year <- strftime(full.flow.ts[["Date"]], format = "%Y")
+    n.years <- length(factor(record.year))
     
-    red.flow.ts <- full.flow.ts[complete.cases(full.flow.ts[, "Date"], full.flow.ts[, "Q"]), ]
+    red.flow.ts <- full.flow.ts[complete.cases(full.flow.ts[["Date"]], full.flow.ts[["Q"]]), ]
     
-    Date <- red.flow.ts[, 1]
-    Q <- red.flow.ts[, 2]
+    Date <- red.flow.ts[[1]]
+    Q <- red.flow.ts[[2]]
     
     lh3 <- function(Q, a) {
+        
         qb1 <- lh(Q, a)
         qb2 <- lh(rev(qb1), a)
         qb3 <- lh(rev(qb2), a)
@@ -57,11 +58,11 @@ baseflows <- function(flow.ts, a = 0.975, ts = "mean") {
     } else {
         
         if (ts == "annual") {
-            a.obs <- aggregate(full.flow.ts$Q, by = list(year = strftime(full.flow.ts$Date, format = "%Y")), function(x) {
+            a.obs <- aggregate(full.flow.ts$Q, by = list(year = strftime(full.flow.ts[["Date"]], format = "%Y")), function(x) {
                 sum(!is.na(x))
             })
             names(a.obs) <- c("year", "no.obs")
-            a.bf <- aggregate(out[2:4], by = list(year = strftime(out$Date, format = "%Y")), mean, na.rm = T)
+            a.bf <- aggregate(out[2:4], by = list(year = strftime(out[["Date"]], format = "%Y")), mean, na.rm = T)
             out <- merge(a.obs, a.bf, by = "year", all.x = T)
             
             return(out)
@@ -74,8 +75,8 @@ baseflows <- function(flow.ts, a = 0.975, ts = "mean") {
             obs <- nrow(red.flow.ts)
             prop.obs = obs/all.days
             
-            return(data.frame(n.years = n.years, prop.obs = prop.obs, MDF = mean(out[, 2], na.rm = T), Q50 = median(out[, 2], na.rm = T), mean.bf = mean(out[, 
-                3], na.rm = T), mean.bfi = mean(out[, 3], na.rm = T)/mean(out[, 2], na.rm = T)))
+            return(data.frame(n.years = n.years, prop.obs = prop.obs, MDF = mean(out[, 2], na.rm = T), Q50 = median(out[, 2], na.rm = T), mean.bf = mean(out[, 3], na.rm = T), mean.bfi = mean(out[, 
+                3], na.rm = T)/mean(out[, 2], na.rm = T)))
             
         }
     }

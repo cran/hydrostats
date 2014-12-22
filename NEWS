@@ -1,3 +1,29 @@
+hydrostats 0.2.3
+----------------------------------------------------------------
+
+BUG FIXES AND MINOR IMPROVEMENTS
+* Modified a number of functions (including partial.series and baseflow) to prevent an error when used with group_by and 'do' 
+	from the dplyr package (useful for analysing multiple flow series simultaneously).
+
+* added minimum and median spell duration to the results returned by 
+	the low.spells and high.spells functions.
+
+* added number of years and ARI to the partial series output.
+
+* fixed an error in high.spells and low.spells, which could produce an error in the duration statistics for annual series.
+
+
+hydrostats 0.2.2
+----------------------------------------------------------------
+
+BUG FIXES AND MINOR IMPROVEMENTS
+* Modified the code for high.spells and low.spells to prevent an error when used with the 'do' 
+	function in dplyr, which allows the use of arbitrary functions 
+	with the group_by function.
+
+
+
+
 hydrostats 0.2.1
 ----------------------------------------------------------------
 

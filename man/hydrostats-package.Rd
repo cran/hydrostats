@@ -6,14 +6,14 @@
 calculate hydrologic statistics
 }
 \description{
-A package to calculate a range of hydrologic statistics based on daily time series data and which are widely used in hydrology and ecological applications.
+Calculate a range of hydrologic statistics based on daily time series data and which are widely used in hydrology and ecological applications.
 }
 \details{
 \tabular{ll}{
 Package: \tab hydrostats\cr
 Type: \tab Package\cr
-Version: \tab 0.2\cr
-Date: \tab 2014-08-14\cr
+Version: \tab 0.2.3\cr
+Date: \tab 2014-12-22\cr
 License: \tab GPL (>= 2) \cr
 }
 
