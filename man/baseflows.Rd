@@ -8,7 +8,7 @@ Measures of central tendency and baseflow via the Lynne-Hollick (LH) baseflow fi
 Calculate measure of central tendency and baseflow indices using the Lynne-Hollick filter
 }
 \usage{
-baseflows(flow.ts, a, ts = "mean")
+baseflows(flow.ts, a, n.reflected = 30, ts = "mean")
 }
 
 \arguments{
@@ -17,6 +17,9 @@ Dataframe with date and discharge data in columns named "Date" and "Q" respectiv
 }
   \item{a}{
 The alpha value used in the Lynne-Hollick filter for digital baseflow separation. Default value is 0.975  
+}
+  \item{n.reflected}{
+The number of days that are reflected at the start and end of the series to provide a burn in for the digital filter. Default value is 30. (See Ladson et al. 2013).
 }
   \item{ts}{
 ts="mean" returns means for the entire time series \cr
@@ -45,6 +48,8 @@ ts="daily"
 
 }
 \references{
+Ladson, A. R., R. Brown, B. Neal and R. Nathan (2013) A standard approach to baseflow separation using the Lyne and Hollick filter. Australian Journal of Water Resources 17(1): 173-18
+
 Lynne, V., Hollick, M. (1979) Stochastic time-variable rainfall-runoff modelling. In: pp. 89-93 Institute of Engineers Australia National Conference. Perth.
 }
 \author{
