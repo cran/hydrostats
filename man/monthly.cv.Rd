@@ -19,11 +19,11 @@ a dataframe with 1 column (monthly.cv)
 }
 
 \author{
-Nick Bond <n.bond@griffith.edu.au>
+Nick Bond <n.bond@latrobe.edu.au>
 }
 
 \examples{
 data(Cooper)
-cooper<-ts.format(Cooper)
+Cooper<-ts.format(Cooper)
 ann.cv(Cooper)
 }
