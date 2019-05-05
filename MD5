@@ -1,7 +1,7 @@
-374208888a28733445b645405997b88a *DESCRIPTION
+f0562a4e39b1eaf235efad9fe7d0c326 *DESCRIPTION
 15756e43274b32053c7c5f39bdb541c7 *NAMESPACE
-1a4dcb3ce0700a29bbd3a62085617a67 *NEWS
-4219bd7f5c89fb9e0fecd6e39774452d *R/CTF.R
+533dfaba903c642e6263f3bee888a2bb *NEWS
+8ffce2f98bc45af9960f19120aa4e25a *R/CTF.R
 b5be59bda619cb822cba223db515f25d *R/Colwells.R
 135fc335eae5f6a86f12e56b88168857 *R/ann.cv.R
 f797d1fb6cdedb07edb41ac000e2faa7 *R/baseflows.R
@@ -20,11 +20,11 @@ e99e926a1a1c5323153b1c7f6ad2eb3c *R/partial.series.R
 b7492f89c2afbe06ad285e168f4b409d *R/recode.R
 b2375afc75aa5b17e1e452ed10425477 *R/seasonality.R
 7d9c9a27d1f9c1e0cac9e05b06e2c05b *R/ts.format.R
-46e8a77b378955cd2528067cd08751bf *README.md
+388874ce462ae3bdec962ff9d0a2ebef *README.md
 751a9ebfbff1cdbbd551136b2d5a1ada *data/Acheron.txt
 08185f5bb4f47d502b4c2a7fa6d53a5e *data/Cooper.txt
 3969fdf1c30c6a63e176dcb97d77d381 *man/Acheron.Rd
-17ab71fb8487d3a4160c1500db2919d4 *man/CTF.Rd
+d6c35201868da0cdd52ac9ab1b0564b0 *man/CTF.Rd
 09d02083ce633de65de79ef0e4e82e8c *man/Colwells.Rd
 ccbbdf2c094cf04a5bec9bf5ca8acb33 *man/Cooper.Rd
 f7692340b974855ef8ac9cd56bbababc *man/ann.cv.Rd
